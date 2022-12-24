@@ -45,19 +45,31 @@ const Board = () => {
   const WinnerBool = checkWinner();
   console.log("WinnerBool:", WinnerBool);
   return (
-    <Box border={"2px"} display={"flex"} justifyContent={"center"} h="100vh">
+    <Box
+      display={"flex"}
+      justifyContent={"center"}
+      h="100vh"
+      bgColor={"#282c34"}
+    >
       {WinnerBool ? (
-        <Box display={"flex"} justifyContent={"center"} h="100vh">
-          <Text>
-            {WinnerBool == "X" ? (
-              <ImCross size={"70px"} color={"rgb(194,239,102)"} />
-            ) : (
-              <ImRadioUnchecked size={"70px"} color={"rgb(194,239,102)"} />
-            )}{" "}
-          </Text>
+        <Box display={"flex"}
+        justifyContent={"center"}
+        h="100vh">
+          <Box margin="auto" display={"flex"} gap={2} >
+            <Text>
+              {WinnerBool == "X" ? (
+                <ImCross size={"70px"} color={"rgb(194,239,102)"} />
+              ) : (
+                <ImRadioUnchecked size={"70px"} color={"rgb(194,239,102)"} />
+              )}{" "}
+            </Text>
+            <Text fontSize={"40px"} fontWeight={700} color={"rgb(251,159,96)"}>
+              Wins
+            </Text>
+          </Box>
         </Box>
       ) : (
-        <Box border={"2px"} margin="auto">
+        <Box border={"2px"} borderColor={"rgb(194,239,102)"} margin="auto">
           <Box display={"flex"}>
             <GameSquare onClick={() => handleClick(0)} value={state[0]} />
             <GameSquare onClick={() => handleClick(1)} value={state[1]} />
@@ -75,7 +87,6 @@ const Board = () => {
           </Box>
         </Box>
       )}
-      {/* <Box h="150px" w="100%" border={"2px"} borderColor="red" ></Box> */}
     </Box>
   );
 };
